@@ -136,11 +136,12 @@ a:hover {
 }
 
 .pub-venue {
+    font-size: 1.5rem;
     font-style: italic;
 }
 
 .pub-authors {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 .pub-code {
@@ -149,7 +150,7 @@ a:hover {
 }
 
 .pub-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-family: sans-serif;
 }
 
