@@ -1,22 +1,8 @@
 body {
     font-size: 1.8rem;
-}
-
-@font-face {
-    font-family: 'futura_ltregular';
-    src: url('../fonts/futuralt-webfont.woff2') format('woff2'),
-    url('../fonts/futuralt-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'futura_ltbook';
-    src: url('../fonts/futuralt-book-webfont.woff2') format('woff2'),
-    url('../fonts/futuralt-book-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+    font-family: 'IBM Plex Mono', monospace;
+    color: #000;
+    background: #fff;
 }
 
 hr {
@@ -28,12 +14,11 @@ ul {
     padding-left: 20px;
 }
 
-h4{
-    font-family: 'futura_ltregular', sans-serif;
+h4, h5, p, .sidebar, .intro, .pub-title, .pub-venue, .pub-authors, .pub-code, .name-title, .text {
+    font-family: 'IBM Plex Mono', monospace;
 }
 
-h5{
-    font-family: 'futura_ltbook', sans-serif;
+h5 {
     font-size: 2.0rem;
 }
 
@@ -43,31 +28,27 @@ h5{
     }
 }
 
-.navbar{
+.navbar {
     position: relative;
     top: 0;
     left: 0;
     border: none;
     height: 4rem;
     margin-top: 3%;
-    font-family: 'futura_ltbook', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
-.navbar ul{
+.navbar ul {
     list-style: none;
 }
 
-.navbar-item{
+.navbar-item {
     float: right;
     color: #c31;
 }
 
-.navbar-list{
+.navbar-list {
     padding-right: 40px;
-}
-
-p {
-    font-family: sans-serif, serif;
 }
 
 a {
@@ -75,17 +56,16 @@ a {
     text-decoration: none;
 }
 
-img {
-    max-width: 100%;
-}
-
 a:hover {
     color: #11aacc;
 }
 
+img {
+    max-width: 100%;
+}
+
 .sidebar {
     text-align: center;
-    font-family: sans-serif, serif;
     font-size: 1.8rem;
 }
 
@@ -101,17 +81,9 @@ a:hover {
     color: #c31;
 }
 
-.text {
-    font-family: sans-serif, serif;
-}
-
 .headshot {
     width: 150px;
     border-radius: 50%;
-}
-
-.intro {
-    font-family: sans-serif, serif;
 }
 
 .pub-image {
@@ -146,16 +118,14 @@ a:hover {
 
 .pub-code {
     font-size: 1.6rem;
-    padding-bottom: 20px
+    padding-bottom: 20px;
 }
 
 .pub-title {
     font-size: 1.6rem;
-    font-family: sans-serif;
 }
 
 .name-title {
-    font-family: sans-serif;
     font-weight: normal;
 }
 
