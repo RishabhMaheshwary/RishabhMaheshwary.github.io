@@ -11,6 +11,8 @@
     }
 </style>
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
 
     <!-- Basic Page Needs
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -52,7 +54,7 @@
 
 <!-- Primary Page Layout
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<div class="container">
+<div class="container" style="max-width: 1100px;">
     <!-- <nav class="navbar">
         <ul class="navbar-list">
             <li class="navbar-item"><a href="/blog">Blog</a> </li>
@@ -73,15 +75,12 @@
             <!-- <span style="font-size: smaller;"><a href="docs/CoverLetter-Rishabh.pdf"><i
                 class="fas fa-file-alt"></i> Cover letter</a></span> -->
         </div>
-        <div class="three columns">&nbsp;</div>
         <div class="nine columns intro">
             <p>
-                My research interests broadly encompass training, alignment, and benchmarking of language models. With
-                the growing integration of AI into our day to day lives, I am passionate about developing AI systems that
-                are safe, robust and reliable.
+               My research encompass training, alignment, and benchmarking of language models. With the growing integration of AI into our daily lives, I am passionate about developing safe and robust AI systems.
             </p>
             <p>
-                I am currently part of the CoreLLM research group at <a href="https://www.servicenow.com/">ServiceNow</a> where my work focuses on enhancing the overall capabilities of language models.
+                I am currently part of the research group at <a href="https://www.servicenow.com/research/">ServiceNow</a> where my work focuses on enhancing LLMs in post-training phase through data curation, alignment, tool-augmented reasoning, and benchmarking.
                 Prior to that, I was an <a href="https://ai.facebook.com/join-us/residency-program/">AI Resident</a> 
                 at <a href="https://ai.facebook.com/research/">Facebook AI Research</a>, where I worked with <a href="https://rohrbach.vision/">Marcus Rohrbach</a> 
                 on developing models with Multimodal understanding of vision and language content. 
@@ -138,33 +137,76 @@
             <hr/>
             <div class="row publication">
                 <div class="pub-image three columns">
+                    <img src="img/qa.png", class="zoom"> <!-- Adjust width and height as needed -->
+                </div>
+                <div class="pub-desc nine columns">
+                    <span class="pub-title"><a href="https://arxiv.org/abs/2505.16293">
+                        Augmenting LLM Reasoning with Dynamic Notes Writing for Complex QA</a></span> 
+
+                    <div class="pub-authors"><span class="fw6">Rishabh Maheshwary</span>, Masoud Hashemi, Khyati Mahajan, Shiva Krishna Reddy Malay, Sai Rajeswar, Sathwik Tejaswi Madhusudhan, Spandana Gella, Vikas Yadav
+                    </div>
+                    <span class="pub-venue">Under Submission in ARR</span>
+                </div>
+            </div> 
+            <div class="row publication">
+                <div class="pub-image three columns">
+                    <img src="img/mrewardbench.png", class="zoom"> <!-- Adjust width and height as needed -->
+                </div>
+                <div class="pub-desc nine columns">
+                    <span class="pub-title"><a href="https://arxiv.org/abs/2410.15522">
+                        M-RewardBench: Evaluating Reward Models in Multilingual Settings</a></span>
+                    <div class="pub-authors">Srishti Gureja, Lester James V. Miranda, Shayekh Bin Islam, <span class="fw6">Rishabh Maheshwary</span>, Drishti Sharma, Gusti Winata, Nathan Lambert, Sebastian Ruder, Sara Hooker, Marzieh Fadaee
+                    </div>
+                    <span class="pub-venue">ACL 2025</span>
+                    <div class="pub-code"><span><a href="https://hf.co/datasets/C4AI-Community/multilingual-reward-bench">Dataset</a> | <a href="https://github.com/for-ai/m-rewardbench">Code</a></span> | <a href="https://m-rewardbench.github.io/">Website</a></span>
+                </div>
+            </div>
+            </div>  
+            <div class="row publication">
+                <div class="pub-image three columns">
+                    <img src="img/include.png", class="zoom"> <!-- Adjust width and height as needed -->
+                </div>
+                <div class="pub-desc nine columns">
+                    <span class="pub-title"><a href="https://openreview.net/forum?id=k3gCieTXeY">
+                        Include: Evaluating Multilingual Language understanding with Regional Knowledge</a></span>
+                    <div class="pub-authors"><span class="fw6">Core Contributor</span>
+                    </div>
+                    <span class="pub-venue">ICLR 2025</span>
+                    <div class="pub-code"><span><a href="https://huggingface.co/datasets/CohereForAI/include-base-44">Dataset</a> | <a href="https://github.com/Cohere-Labs-Community/global-exams">Code</a></span>
+                </div>
+            </div>
+            </div>  
+            <div class="row publication">
+                <div class="pub-image three columns">
+                    <img src="img/curri_dpo.png" class="zoom">
+                </div>
+                <div class="pub-desc nine columns">
+                    <span class="pub-title"><a href="https://arxiv.org/abs/2403.07230">
+                        Enhancing Alignment using Curriculum Learning & Ranked Preferences</a></span>
+                        <div class="pub-authors">Pulkit Pattnaik, <span class="fw6">Rishabh Maheshwary</span>, Kelechi Ogueji, Vikas Yadav, Sathwik Tejaswi Madhusudhan
+                        </div>
+                    <span class="pub-venue">EMNLP 2024</span>
+                    <div class="pub-code"><span><a href="https://huggingface.co/datasets/ServiceNow-AI/Curriculum_DPO_preferences">Dataset</a>
+                </div>
+            </div>
+            </div>
+            <div class="row publication">
+                <div class="pub-image three columns">
                     <img src="img/m2lingual.png", class="zoom"> <!-- Adjust width and height as needed -->
                 </div>
                 <div class="pub-desc nine columns">
                     <span class="pub-title"><a href="https://arxiv.org/abs/2406.16783">
-                        M2Lingual: Enhancing Multilingual, Multi-Turn Instruction Alignment in Large Language Models.</a></span>
+                        M2Lingual: Enhancing Multilingual, Multi-Turn Instruction Alignment in Large Language Models</a></span>
                     <div class="pub-authors"><span class="fw6">Rishabh Maheshwary</span>, Vikas Yadav, Hoang Nguyen, Khyati Mahajan, Sathwik Tejaswi Madhusudhan
                     </div>
-                    <span class="pub-venue">Under Submission in NeurIPS, 2024, Dataset and Benchmark track.</span>
+                    <span class="pub-venue">NAACL 2025</span>
                     <div class="pub-code"><span><a href="https://huggingface.co/datasets/ServiceNow-AI/M2Lingual">Dataset</a> | <a href="https://github.com/ServiceNow/M2Lingual">Code</a></span>
                 </div>
-            </div>            
+            </div> 
+            </div>           
             <div class="row publication">
                 <div class="pub-image three columns">
-                    <img src="img/curri_dpo.png">
-                </div>
-                <div class="pub-desc nine columns">
-                    <span class="pub-title"><a href="https://arxiv.org/abs/2403.07230">
-                        Curry-DPO: Enhancing Alignment using Curriculum Learning & Ranked Preferences</a></span>
-                        <div class="pub-authors">Pulkit Pattnaik, <span class="fw6">Rishabh Maheshwary</span>, Kelechi Ogueji, Vikas Yadav, Sathwik Tejaswi Madhusudhan
-                        </div>
-                    <span class="pub-venue">Arxiv preprint</span>
-                    <!-- <div class="pub-code"><span></span> -->
-                </div>
-            </div>
-            <div class="row publication">
-                <div class="pub-image three columns">
-                    <img src="img/vqa.png">
+                    <img src="img/vqa.png" class="zoom">
                 </div>
                 <div class="pub-desc nine columns">
                     <span class="pub-title"><a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Dancette_Improving_Selective_Visual_Question_Answering_by_Learning_From_Your_Peers_CVPR_2023_paper.pdf">
@@ -178,7 +220,7 @@
             </div>
             <div class="row publication">
                 <div class="pub-image three columns">
-                    <img src="img/thesis.png">
+                    <img src="img/thesis.png" class="zoom">
                 </div>
                 <div class="pub-desc nine columns">
                     <span class="pub-title"><a href="docs/Evaluating_the_Robustness_of_Deep_learning_Models_for_NLP.pdf">Evaluating the Robustness of Deep learning Models for NLP</a></span><br>
@@ -187,9 +229,10 @@
                     <div class="pub-code"><span><a href="https://docs.google.com/presentation/d/19tTGz1IyTBss1h8WvMPy9H5WMjxAjy9W/edit?usp=sharing&ouid=104639979968551783603&rtpof=true&sd=true">Slides</a></span></div>
                 </div>
             </div>
+            </div>
             <div class="row publication">
                 <div class="pub-image three columns">
-                    <img src="img/da.png">
+                    <img src="img/da.png" class="zoom">
                 </div>
                 <div class="pub-desc nine columns">
                     <span class="pub-title"><a href="https://aclanthology.org/2022.naacl-main.310/">Practice Makes a 
@@ -200,9 +243,10 @@
                     <div class="pub-code"><span><a href="https://github.com/kevivk/MWP-Augmentation">Code</a> | <a href="docs/data_aug.pdf">Slides</a></span>
                 </div>
             </div>
+            </div>
             <div class="row publication">
                 <div class="pub-image three columns">
-                    <img src="img/bb.png">
+                    <img src="img/bb.png" class="zoom">
                 </div>
                 <div class="pub-desc nine columns">
                     <span class="pub-title"><a href="https://aclanthology.org/2021.emnlp-main.661">A Strong Baseline 
@@ -213,9 +257,10 @@
                     <div class="pub-code"><span><a href="https://github.com/RishabhMaheshwary/query-attack">Code</a> | <a href="docs/query.pdf">Slides</a></span>
                 </div>
             </div>
+            </div>
             <div class="row publication">
                 <div class="pub-image three columns">
-                    <img src="img/mwp.png">
+                    <img src="img/mwp.png" class="zoom">
                 </div>
                 <div class="pub-desc nine columns">
                     <span class="pub-title"><a href="https://aclanthology.org/2021.findings-emnlp.230/">Adversarial Examples 
@@ -226,9 +271,10 @@
                     <div class="pub-code"><span><a href="https://github.com/kevivk/MWP_Adversarial">Code</a></span>
                 </div>
             </div>
+            </div>
             <div class="row publication">
                 <div class="pub-image three columns">
-                    <img src="img/hl.png">
+                    <img src="img/hl.png" class="zoom">
                 </div>
                 <div class="pub-desc nine columns">
                     <span class="pub-title"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/17595/17402">Generating natural language 
@@ -239,9 +285,10 @@
                     <div class="pub-code"><span><a href="https://github.com/RishabhMaheshwary/hard-label-attack">Code</a> | <a href="docs/hard_label.pdf">Slides</a> | <a href="docs/hard_label_poster.pdf">Poster</a></span>
                 </div>
             </div>
+            </div>
             <div class="row publication">
                 <div class="pub-image three columns">
-                    <img src="img/ca.png">
+                    <img src="img/ca.png" class="zoom">
                 </div>
                 <div class="pub-desc nine columns">
                     <span class="pub-title"><a href="https://ojs.aaai.org/index.php/AAAI/article/download/17916/17721">A context aware 
