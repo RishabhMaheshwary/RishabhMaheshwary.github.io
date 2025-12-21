@@ -1,306 +1,662 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    .zoom {
-        transform: scale(1.3); /* Adjust the scale value as needed */
-        transition: transform 0.2s; /* Optional: Adds a transition effect */
-    }
-
-    .zoom:hover {
-        transform: scale(2.0); /* Optional: Scales the image further on hover */
-    }
-</style>
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-
-    <!-- Basic Page Needs
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
     <title>Rishabh Maheshwary</title>
-    <meta name="description" content="AI Resident at Meta/Facebook AI Research">
+    <meta name="description" content="Research Scientist at ServiceNow">
     <meta name="author" content="Rishabh Maheshwary">
-    <meta name="keywords" content="rishabh maheshwary, rishabh, maheshwary, rishabh-maheshwary, RishabhMaheshwary, rishmaheshwary">
-
-    <!-- Mobile Specific Metas
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- FONT
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Vollkorn" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
 
-    <!-- CSS
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="https://use.typekit.net/qks0rmn.css">
+        body {
+            font-size: 1.6rem;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #fafafa;
+        }
 
+        /* Header Section */
+        /* 🎨 CUSTOMIZE HEADER COLORS HERE */
+        .header {
+            /* Light gradient options - uncomment one you like: */
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);  /* Light gray */
+            /* background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%); */ /* White to light gray */
+            /* background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); */ /* Light blue */
+            /* background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); */ /* Light pink */
+            /* background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); */ /* Light purple */
+            
+            color: #1a1a1a;  /* Changed to dark text for light background */
+            padding: 80px 20px 60px;
+            position: relative;
+            overflow: hidden;
+        }
 
-    <!-- Favicon
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="icon" type="image/png" href="img/pic.jpeg" sizes="32x32"/>
-    <link rel="icon" type="image/png" href="img/pic.jpeg" sizes="16x16"/>
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(0,0,0,0.02)"/></svg>') repeat;
+            opacity: 0.5;
+        }
 
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
 
+        .profile-section {
+            flex-shrink: 0;
+        }
+
+        .headshot {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(0, 0, 0, 0.1);  /* Changed for light header */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);  /* Changed for light header */
+        }
+
+        .bio-section {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 4.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 1.8rem;
+            opacity: 0.85;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #1a1a1a;  /* Changed to dark for light header */
+            font-size: 2.0rem;
+            transition: all 0.3s;
+            opacity: 0.7;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 60px;
+        }
+
+        .about p {
+            font-size: 1.7rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #2d2d2d;
+        }
+
+        .about a {
+            color: #1a1a1a;
+            text-decoration: none;
+            border-bottom: 2px solid #e0e0e0;
+            transition: border-color 0.3s;
+            font-weight: 500;
+        }
+
+        .about a:hover {
+            border-color: #1a1a1a;
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-size: 3.0rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-header::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, #1a1a1a 0%, transparent 100%);
+        }
+
+        /* Publications Grid */
+        .publications-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .publication-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            display: flex;
+            gap: 0;
+        }
+
+        .publication-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .pub-image-container {
+            flex: 0 0 200px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pub-image-container img {
+            max-width: 100%;
+            max-height: 140px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .publication-card:hover .pub-image-container img {
+            transform: scale(1.1);
+        }
+
+        .pub-content {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .pub-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .pub-title a {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .pub-title a:hover {
+            color: #4a4a4a;
+        }
+
+        .pub-authors {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .pub-venue {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            display: inline-block;
+            padding: 4px 12px;
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        .pub-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .pub-link {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            padding: 6px 14px;
+            border: 1.5px solid #1a1a1a;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .pub-link:hover {
+            background: #1a1a1a;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .fw6 {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+            font-size: 1.4rem;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 50px 20px 40px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            h1 {
+                font-size: 3.2rem;
+            }
+
+            .tagline {
+                font-size: 1.6rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .about {
+                padding: 30px 25px;
+            }
+
+            .section-header {
+                font-size: 2.4rem;
+            }
+
+            .publication-card {
+                flex-direction: column;
+            }
+
+            .pub-image-container {
+                flex: 1;
+                min-height: 180px;
+            }
+
+            .pub-content {
+                padding: 25px;
+            }
+
+            .pub-title {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .headshot {
+                width: 140px;
+                height: 140px;
+            }
+
+            .section-header {
+                font-size: 2.0rem;
+            }
+
+            .about p {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Smooth animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .publication-card {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .publication-card:nth-child(1) { animation-delay: 0.1s; }
+        .publication-card:nth-child(2) { animation-delay: 0.15s; }
+        .publication-card:nth-child(3) { animation-delay: 0.2s; }
+        .publication-card:nth-child(4) { animation-delay: 0.25s; }
+        .publication-card:nth-child(5) { animation-delay: 0.3s; }
+    </style>
 </head>
 <body>
-
-<!-- Primary Page Layout
-–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<div class="container" style="max-width: 1100px;">
-    <!-- <nav class="navbar">
-        <ul class="navbar-list">
-            <li class="navbar-item"><a href="/blog">Blog</a> </li>
-        </ul>
-    </nav> -->
-    <div class="row" style="margin-top: 5%">
-        <div class="three columns sidebar">
-            <img class="headshot" src="img/pic.jpeg">
-            <h5 class="name-title">Rishabh Maheshwary</h5>
-            <span><a href="mailto:rf.rishabh@gmail.com">rf.rishabh@gmail.com</a></span>
-            <span> <a href="https://twitter.com/rmahesh__"<i class="fab fa-twitter"></i><a/>
-                / <a href="https://github.com/RishabhMaheshwary"> <i class="fab fa-github"></i> </a>
-                / <a href="https://linkedin.com/in/rishabh-maheshwary/"> <i class="fab fa-linkedin"></i> </a>
-                / <a href="docs/Resume.pdf"><i class="ai ai-cv"></i></a>
-                / <a href="https://scholar.google.com/citations?user=cwGB7lwAAAAJ&hl=en&oi=sra"><i
-                        class="ai ai-google-scholar"></i></a>
-            </span>
-            <!-- <span style="font-size: smaller;"><a href="docs/CoverLetter-Rishabh.pdf"><i
-                class="fas fa-file-alt"></i> Cover letter</a></span> -->
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <div class="profile-section">
+                <img class="headshot" src="img/pic.jpeg" alt="Rishabh Maheshwary">
+            </div>
+            <div class="bio-section">
+                <h1>Rishabh Maheshwary</h1>
+                <p class="tagline">Research Scientist @ ServiceNow</p>
+                <div class="social-links">
+                    <a href="mailto:rf.rishabh@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://twitter.com/rmahesh__" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/RishabhMaheshwary" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/rishabh-maheshwary/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="docs/Resume.pdf" title="CV"><i class="ai ai-cv"></i></a>
+                    <a href="https://scholar.google.com/citations?user=cwGB7lwAAAAJ&hl=en&oi=sra" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+                </div>
+            </div>
         </div>
-        <div class="nine columns intro">
-            <p>
-               My research encompass training, alignment, and benchmarking of language models. With the growing integration of AI into our daily lives, I am passionate about developing safe and robust AI systems.
-            </p>
-            <p>
-                I am currently part of the research group at <a href="https://www.servicenow.com/research/">ServiceNow</a> where my work focuses on enhancing LLMs in post-training phase through data curation, alignment, tool-augmented reasoning, and benchmarking.
-                Prior to that, I was an <a href="https://ai.facebook.com/join-us/residency-program/">AI Resident</a> 
-                at <a href="https://ai.facebook.com/research/">Facebook AI Research</a>, where I worked with <a href="https://rohrbach.vision/">Marcus Rohrbach</a> 
-                on developing models with Multimodal understanding of vision and language content. 
-                During my Masters, I worked on evaluating the robustness and generalization of language models as part of my thesis at <a href="https://www.iiit.ac.in/">IIIT Hyderabad</a>.<br> 
-                More details are available in my <a href="https://docs.google.com/document/d/1_yCMO4WAIThGANHYUUsTe85pzOMmYafa4Hwo-9wE9_E/edit?usp=sharing">cover letter</a>.
-            </p>
-            <!-- <h5>Experience</h5>
-            <hr/>
-            <div class="row publication">
-                <div class="pub-image1 two columns">
-                    <img src="img/fb.jpeg">
-                </div>
-                <div class="pub-desc eight columns">
-                    <span class="pub-title">AI Resident</a></span>
-                    <div class="pub-authors"><span class="fw6">Facebook AI Research</span>
-                    </div>
-                    <span class="pub-venue">Nov 2021 - Present </span>
-                </div>
-            </div>
-            <div class="row publication">
-                <div class="pub-image1 two columns">
-                    <img src="img/verisk.jpeg">
-                </div>
-                <div class="pub-desc eight columns">
-                    <span class="pub-title">Research Intern - AI</a></span>
-                    <div class="pub-authors"><span class="fw6">Verisk AI</span>
-                    </div>
-                    <span class="pub-venue">Jun 2021 - Nov 2021 </span>
-                </div>
-            </div>
-            <div class="row publication">
-                <div class="pub-image1 two columns">
-                    <img src="img/iiit.png">
-                </div>
-                <div class="pub-desc eight columns">
-                    <span class="pub-title">Research Assistant</a></span>
-                    <div class="pub-authors"><span class="fw6">IIIT Hyderabad</span>
-                    </div>
-                    <span class="pub-venue">Jan 2020 - Sep 2021 </span>
-                </div>
-            </div>
-            <div class="row publication">
-                <div class="pub-image1 two columns">
-                    <img src="img/gsoc.jpeg">
-                </div>
-                <div class="pub-desc eight columns">
-                    <span class="pub-title">Software Developer Intern</a></span>
-                    <div class="pub-authors"><span class="fw6">Google Summer of Code</span>
-                    </div>
-                    <span class="pub-venue">Apr 2018 - Sep 2018 </span>
-                </div>
-            </div> -->
-            <h5>Research</h5>
-            <hr/>
-            <div class="row publication">
-                <div class="pub-image three columns">
-                    <img src="img/qa.png", class="zoom"> <!-- Adjust width and height as needed -->
-                </div>
-                <div class="pub-desc nine columns">
-                    <span class="pub-title"><a href="https://arxiv.org/abs/2505.16293">
-                        Augmenting LLM Reasoning with Dynamic Notes Writing for Complex QA</a></span> 
+    </header>
 
-                    <div class="pub-authors"><span class="fw6">Rishabh Maheshwary</span>, Masoud Hashemi, Khyati Mahajan, Shiva Krishna Reddy Malay, Sai Rajeswar, Sathwik Tejaswi Madhusudhan, Spandana Gella, Vikas Yadav
-                    </div>
-                    <span class="pub-venue">Under Submission in ARR</span>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <section class="about">
+            <p>I am Rishabh, currently part of the research group at <a href="https://www.servicenow.com/research/author/rishabh-maheshwary.html">ServiceNow</a>, where I focus on LLM post-training through data curation, fine-tuning, reinforcement learning, and model evaluations.</p>
+            
+            <p>My recent work includes <a href="https://arxiv.org/abs/2510.01141">Apriel-15B</a> <a href="https://huggingface.co/collections/ServiceNow-AI/apriel-15-15b-thinker">model series</a>, research on <a href="https://arxiv.org/abs/2406.16783">multilingual</a> <a href="https://arxiv.org/abs/2410.15522">alignment</a> and <a href="https://openreview.net/forum?id=k3gCieTXeY">benchmarking</a>, <a href="https://arxiv.org/abs/2403.07230">curriculum learning for preference modeling</a>, and improving <a href="https://arxiv.org/abs/2505.16293">agentic capabilities</a>.</p>
+            
+            <p>Previously, I was an <a href="https://ai.facebook.com/join-us/residency-program/">AI Resident</a> at <a href="https://ai.facebook.com/research/">Facebook AI Research</a>, where I worked with <a href="https://rohrbach.vision/">Marcus Rohrbach</a> on text detection <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Dancette_Improving_Selective_Visual_Question_Answering_by_Learning_From_Your_Peers_CVPR_2023_paper.pdf">multimodal vision-and-language understanding.</a></p> 
+            <p>Prior to that, I completed my Master's at <a href="https://blogs.iiit.ac.in/monthly_news/21398/">IIIT Hyderabad</a>, focusing on robustness and generalization of language models.</p>
+            <p>More details can be found on my <a href="https://scholar.google.com/citations?user=cwGB7lwAAAAJ&hl=en&oi=sra">google scholar page</a> and <a href="https://docs.google.com/document/d/1_yCMO4WAIThGANHYUUsTe85pzOMmYafa4Hwo-9wE9_E/edit?usp=sharing">cover letter.</a></p>
+        </section>
+
+        <!-- Publications Section -->
+        <h2 class="section-header">Research</h2>
+        
+        <div class="publications-grid">
+            <!-- Publication 1 -->
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/now1.png" alt="Apriel-15B">
                 </div>
-            </div> 
-            <div class="row publication">
-                <div class="pub-image three columns">
-                    <img src="img/mrewardbench.png", class="zoom"> <!-- Adjust width and height as needed -->
-                </div>
-                <div class="pub-desc nine columns">
-                    <span class="pub-title"><a href="https://arxiv.org/abs/2410.15522">
-                        M-RewardBench: Evaluating Reward Models in Multilingual Settings</a></span>
-                    <div class="pub-authors">Srishti Gureja<sup>*</sup></span>, Lester James V. Miranda<sup>*</sup></span>, Shayekh Bin Islam<sup>*</sup></span>, <span class="fw6">Rishabh Maheshwary<sup>*</sup></span>, Drishti Sharma, Gusti Winata, Nathan Lambert, Sebastian Ruder, Sara Hooker, Marzieh Fadaee
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://arxiv.org/abs/2510.01141">Apriel-15B series</a></h3>
+                    <p class="pub-authors"><span class="fw6">Core Contributor | Training & Evals</span></p>
+                    <span class="pub-venue">ServiceNow Research</span>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2510.01141" class="pub-link">Paper</a>
+                        <a href="https://huggingface.co/collections/ServiceNow-AI/apriel-15-15b-thinker" class="pub-link">Model</a>
+                        <a href="https://huggingface.co/blog/ServiceNow-AI/apriel-1p6-15b-thinker" class="pub-link">Blog</a>
                     </div>
+                </div>
+            </div>
+
+            <!-- Publication 3 -->
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/mrewardbench.png" alt="M-RewardBench">
+                </div>
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://arxiv.org/abs/2410.15522">M-RewardBench: Evaluating Reward Models for Multilingual</a></h3>
+                    <p class="pub-authors">Srishti Gureja*, Lester James V. Miranda*, Shayekh Bin Islam*, <span class="fw6">Rishabh Maheshwary*</span>, Drishti Sharma, Gusti Winata, Nathan Lambert, Sebastian Ruder, Sara Hooker, Marzieh Fadaee</p>
                     <span class="pub-venue">ACL 2025</span>
-                    <div class="pub-code"><span><a href="https://hf.co/datasets/C4AI-Community/multilingual-reward-bench">Dataset</a> | <a href="https://github.com/for-ai/m-rewardbench">Code</a></span> | <a href="https://m-rewardbench.github.io/">Website</a></span>
+                    <div class="pub-links">
+                        <a href="https://hf.co/datasets/C4AI-Community/multilingual-reward-bench" class="pub-link">Dataset</a>
+                        <a href="https://github.com/for-ai/m-rewardbench" class="pub-link">Code</a>
+                        <a href="https://m-rewardbench.github.io/" class="pub-link">Website</a>
+                    </div>
                 </div>
             </div>
-            </div>  
-            <div class="row publication">
-                <div class="pub-image three columns">
-                    <img src="img/include.png", class="zoom"> <!-- Adjust width and height as needed -->
+
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/quant.png" alt="Dynamic Notes">
                 </div>
-                <div class="pub-desc nine columns">
-                    <span class="pub-title"><a href="https://openreview.net/forum?id=k3gCieTXeY">
-                        Include: Evaluating Multilingual Language understanding with Regional Knowledge</a></span>
-                    <div class="pub-authors"><span class="fw6">Core Contributor</span>
-                    </div>
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://arxiv.org/abs/2505.16293">Variable Layerwise Quantization: A Simple and Effective Approach to Quantize LLMs</a></h3>
+                    <p class="pub-authors">Razvan-Gabriel Dumitru, Vikas Yadav, <span class="fw6">Rishabh Maheshwary</span>, Paul Ioan Clotan, Sathwik Tejaswi Madhusudhan, Mihai Surdeanu</p>
+                    <span class="pub-venue">Findings of ACL 2025</span>
+                </div>
+            </div>
+
+            <!-- Publication 2 -->
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/qa.png" alt="Dynamic Notes">
+                </div>
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://arxiv.org/abs/2505.16293">Augmenting LLM Reasoning with Dynamic Notes Writing for Complex QA</a></h3>
+                    <p class="pub-authors"><span class="fw6">Rishabh Maheshwary</span>, Masoud Hashemi, Khyati Mahajan, Shiva Krishna Reddy Malay, Sai Rajeswar, Sathwik Tejaswi Madhusudhan, Spandana Gella, Vikas Yadav</p>
+                    <span class="pub-venue">Under Review • ARR</span>
+                </div>
+            </div>
+
+            <!-- Publication 4 -->
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/include.png" alt="Include">
+                </div>
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://openreview.net/forum?id=k3gCieTXeY">Include: Evaluating Multilingual Language understanding with Regional Knowledge</a></h3>
+                    <p class="pub-authors"><span class="fw6">Core Contributor | Data curation</span></p>
                     <span class="pub-venue">ICLR 2025</span>
-                    <div class="pub-code"><span><a href="https://huggingface.co/datasets/CohereForAI/include-base-44">Dataset</a> | <a href="https://github.com/Cohere-Labs-Community/global-exams">Code</a></span>
+                    <div class="pub-links">
+                        <a href="https://huggingface.co/datasets/CohereForAI/include-base-44" class="pub-link">Dataset</a>
+                        <a href="https://github.com/Cohere-Labs-Community/global-exams" class="pub-link">Code</a>
+                    </div>
                 </div>
             </div>
-            </div>  
-            <div class="row publication">
-                <div class="pub-image three columns">
-                    <img src="img/curri_dpo.png" class="zoom">
+
+            <!-- Publication 5 -->
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/curri_dpo.png" alt="Curriculum DPO">
                 </div>
-                <div class="pub-desc nine columns">
-                    <span class="pub-title"><a href="https://arxiv.org/abs/2403.07230">
-                        Enhancing Alignment using Curriculum Learning & Ranked Preferences</a></span>
-                        <div class="pub-authors">Pulkit Pattnaik<sup>*</sup></span>, <span class="fw6">Rishabh Maheshwary<sup>*</sup></span></span>, Kelechi Ogueji, Vikas Yadav, Sathwik Tejaswi Madhusudhan
-                        </div>
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://arxiv.org/abs/2403.07230">Enhancing Alignment using Curriculum Learning & Ranked Preferences</a></h3>
+                    <p class="pub-authors">Pulkit Pattnaik*, <span class="fw6">Rishabh Maheshwary*</span>, Kelechi Ogueji, Vikas Yadav, Sathwik Tejaswi Madhusudhan</p>
                     <span class="pub-venue">EMNLP 2024</span>
-                    <div class="pub-code"><span><a href="https://huggingface.co/datasets/ServiceNow-AI/Curriculum_DPO_preferences">Dataset</a>
-                </div>
-            </div>
-            </div>
-            <div class="row publication">
-                <div class="pub-image three columns">
-                    <img src="img/m2lingual.png", class="zoom"> <!-- Adjust width and height as needed -->
-                </div>
-                <div class="pub-desc nine columns">
-                    <span class="pub-title"><a href="https://arxiv.org/abs/2406.16783">
-                        M2Lingual: Enhancing Multilingual, Multi-Turn Instruction Alignment in Large Language Models</a></span>
-                    <div class="pub-authors"><span class="fw6">Rishabh Maheshwary</span>, Vikas Yadav, Hoang Nguyen, Khyati Mahajan, Sathwik Tejaswi Madhusudhan
+                    <div class="pub-links">
+                        <a href="https://huggingface.co/datasets/ServiceNow-AI/Curriculum_DPO_preferences" class="pub-link">Dataset</a>
                     </div>
+                </div>
+            </div>
+
+            <!-- Publication 6 -->
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/m2lingual.png" alt="M2Lingual">
+                </div>
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://arxiv.org/abs/2406.16783">M2Lingual: Enhancing Multilingual, Multi-Turn Instruction Alignment in Large Language Models</a></h3>
+                    <p class="pub-authors"><span class="fw6">Rishabh Maheshwary</span>, Vikas Yadav, Hoang Nguyen, Khyati Mahajan, Sathwik Tejaswi Madhusudhan</p>
                     <span class="pub-venue">NAACL 2025</span>
-                    <div class="pub-code"><span><a href="https://huggingface.co/datasets/ServiceNow-AI/M2Lingual">Dataset</a> | <a href="https://github.com/ServiceNow/M2Lingual">Code</a></span>
+                    <div class="pub-links">
+                        <a href="https://huggingface.co/datasets/ServiceNow-AI/M2Lingual" class="pub-link">Dataset</a>
+                        <a href="https://github.com/ServiceNow/M2Lingual" class="pub-link">Code</a>
+                    </div>
                 </div>
-            </div> 
-            </div>           
-            <div class="row publication">
-                <div class="pub-image three columns">
-                    <img src="img/vqa.png" class="zoom">
+            </div>
+
+            <!-- Publication 7 -->
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/vqa.png" alt="VQA">
                 </div>
-                <div class="pub-desc nine columns">
-                    <span class="pub-title"><a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Dancette_Improving_Selective_Visual_Question_Answering_by_Learning_From_Your_Peers_CVPR_2023_paper.pdf">
-                        Improving Selective Visual Question Answering by Learning from Your Peers</a></span>
-                        <div class="pub-authors">Corentin Dancette, Spencer Whitehead, <span class="fw6">Rishabh Maheshwary</span>, Ramakrishna Vedantam, Stefan Scherer,
-                            Xinlei Chen, Matthieu Cord, Marcus Rohrbach
-                        </div>
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Dancette_Improving_Selective_Visual_Question_Answering_by_Learning_From_Your_Peers_CVPR_2023_paper.pdf">Improving Selective Visual Question Answering by Learning from Your Peers</a></h3>
+                    <p class="pub-authors">Corentin Dancette, Spencer Whitehead, <span class="fw6">Rishabh Maheshwary</span>, Ramakrishna Vedantam, Stefan Scherer, Xinlei Chen, Matthieu Cord, Marcus Rohrbach</p>
                     <span class="pub-venue">CVPR 2023</span>
-                    <!-- <div class="pub-code"><span></span> -->
                 </div>
             </div>
-            <div class="row publication">
-                <div class="pub-image three columns">
-                    <img src="img/thesis.png" class="zoom">
+
+
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/td.png" alt="VQA">
                 </div>
-                <div class="pub-desc nine columns">
-                    <span class="pub-title"><a href="docs/Evaluating_the_Robustness_of_Deep_learning_Models_for_NLP.pdf">Evaluating the Robustness of Deep learning Models for NLP</a></span><br>
-                    <span class="pub-venue">Masters Thesis 2022</span>
-                    <div class="pub-code"><span>IIIT Hyderabad</span>
-                    <div class="pub-code"><span><a href="https://docs.google.com/presentation/d/19tTGz1IyTBss1h8WvMPy9H5WMjxAjy9W/edit?usp=sharing&ouid=104639979968551783603&rtpof=true&sd=true">Slides</a></span></div>
-                </div>
-            </div>
-            </div>
-            <div class="row publication">
-                <div class="pub-image three columns">
-                    <img src="img/da.png" class="zoom">
-                </div>
-                <div class="pub-desc nine columns">
-                    <span class="pub-title"><a href="https://aclanthology.org/2022.naacl-main.310/">Practice Makes a 
-                        Solver Perfect: Data Augmentation for Math Word Problem Solvers</a></span>
-                        <div class="pub-authors">Vivek Kumar, <span class="fw6">Rishabh Maheshwary</span>, Vikram Pudi
-                        </div>
-                    <span class="pub-venue">NAACL 2022 (Oral)</span>
-                    <div class="pub-code"><span><a href="https://github.com/kevivk/MWP-Augmentation">Code</a> | <a href="docs/data_aug.pdf">Slides</a></span>
-                </div>
-            </div>
-            </div>
-            <div class="row publication">
-                <div class="pub-image three columns">
-                    <img src="img/bb.png" class="zoom">
-                </div>
-                <div class="pub-desc nine columns">
-                    <span class="pub-title"><a href="https://aclanthology.org/2021.emnlp-main.661">A Strong Baseline 
-                        for Query Efficient Attacks in a Black Box Setting</a></span>
-                    <div class="pub-authors"><span class="fw6">Rishabh Maheshwary<sup>*</sup></span></span>, Saket Maheshwary<sup>*</sup></span>, Vikram Pudi
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://docs.google.com/presentation/d/16OjKl8uSKnHerBe3C-LVFxcUvQ_-HLhA/edit?usp=sharing&ouid=104639979968551783603&rtpof=true&sd=true">End-to-end text detection</a></h3>
+                    <p class="pub-authors"><span class="fw6">Rishabh Maheshwary</span>, Spencer Whitehead, Ronghang hu, Marcus Rohrbach</p>
+                    <div class="pub-links">
+                        <a href="https://docs.google.com/presentation/d/16OjKl8uSKnHerBe3C-LVFxcUvQ_-HLhA/edit?usp=sharing&ouid=104639979968551783603&rtpof=true&sd=true" class="pub-link">Slides</a>
                     </div>
+                </div>
+                </div>
+
+            <!-- Publication 9 -->
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/da.png" alt="Data Augmentation">
+                </div>
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://aclanthology.org/2022.naacl-main.310/">Practice Makes a Solver Perfect: Data Augmentation for Math Word Problem Solvers</a></h3>
+                    <p class="pub-authors">Vivek Kumar, <span class="fw6">Rishabh Maheshwary</span>, Vikram Pudi</p>
+                    <span class="pub-venue">NAACL 2022 • Oral</span>
+                    <div class="pub-links">
+                        <a href="https://github.com/kevivk/MWP-Augmentation" class="pub-link">Code</a>
+                        <a href="docs/data_aug.pdf" class="pub-link">Slides</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publication 10 -->
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/bb.png" alt="Black Box">
+                </div>
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://aclanthology.org/2021.emnlp-main.661">A Strong Baseline for Query Efficient Attacks in a Black Box Setting</a></h3>
+                    <p class="pub-authors"><span class="fw6">Rishabh Maheshwary*</span>, Saket Maheshwary*, Vikram Pudi</p>
                     <span class="pub-venue">EMNLP 2021</span>
-                    <div class="pub-code"><span><a href="https://github.com/RishabhMaheshwary/query-attack">Code</a> | <a href="docs/query.pdf">Slides</a></span>
-                </div>
-            </div>
-            </div>
-            <div class="row publication">
-                <div class="pub-image three columns">
-                    <img src="img/mwp.png" class="zoom">
-                </div>
-                <div class="pub-desc nine columns">
-                    <span class="pub-title"><a href="https://aclanthology.org/2021.findings-emnlp.230/">Adversarial Examples 
-                        for Evaluating Math Word Problem Solvers</a></span>
-                    <div class="pub-authors">Vivek Kumar<sup>*</sup></span>, <span class="fw6">Rishabh Maheshwary<sup>*</sup></span></span>, Vikram Pudi
+                    <div class="pub-links">
+                        <a href="https://github.com/RishabhMaheshwary/query-attack" class="pub-link">Code</a>
+                        <a href="docs/query.pdf" class="pub-link">Slides</a>
                     </div>
-                    <span class="pub-venue">EMNLP 2021, Findings</span>
-                    <div class="pub-code"><span><a href="https://github.com/kevivk/MWP_Adversarial">Code</a></span>
                 </div>
             </div>
-            </div>
-            <div class="row publication">
-                <div class="pub-image three columns">
-                    <img src="img/hl.png" class="zoom">
+
+            <!-- Publication 11 -->
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/mwp.png" alt="MWP">
                 </div>
-                <div class="pub-desc nine columns">
-                    <span class="pub-title"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/17595/17402">Generating natural language 
-                        attacks in a hard label black box setting</a></span>
-                    <div class="pub-authors"><span class="fw6">Rishabh Maheshwary</span>, Saket Maheshwary, Vikram Pudi
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://aclanthology.org/2021.findings-emnlp.230/">Adversarial Examples for Evaluating Math Word Problem Solvers</a></h3>
+                    <p class="pub-authors">Vivek Kumar*, <span class="fw6">Rishabh Maheshwary*</span>, Vikram Pudi</p>
+                    <span class="pub-venue">EMNLP 2021 • Findings</span>
+                    <div class="pub-links">
+                        <a href="https://github.com/kevivk/MWP_Adversarial" class="pub-link">Code</a>
                     </div>
+                </div>
+            </div>
+
+            <!-- Publication 12 -->
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/hl.png" alt="Hard Label">
+                </div>
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/17595/17402">Generating natural language attacks in a hard label black box setting</a></h3>
+                    <p class="pub-authors"><span class="fw6">Rishabh Maheshwary</span>, Saket Maheshwary, Vikram Pudi</p>
                     <span class="pub-venue">AAAI 2021</span>
-                    <div class="pub-code"><span><a href="https://github.com/RishabhMaheshwary/hard-label-attack">Code</a> | <a href="docs/hard_label.pdf">Slides</a> | <a href="docs/hard_label_poster.pdf">Poster</a></span>
+                    <div class="pub-links">
+                        <a href="https://github.com/RishabhMaheshwary/hard-label-attack" class="pub-link">Code</a>
+                        <a href="docs/hard_label.pdf" class="pub-link">Slides</a>
+                        <a href="docs/hard_label_poster.pdf" class="pub-link">Poster</a>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div class="row publication">
-                <div class="pub-image three columns">
-                    <img src="img/ca.png" class="zoom">
+
+            <!-- Publication 13 -->
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/ca.png" alt="Context Attack">
                 </div>
-                <div class="pub-desc nine columns">
-                    <span class="pub-title"><a href="https://ojs.aaai.org/index.php/AAAI/article/download/17916/17721">A context aware 
-                        approach for generating natural language attacks</a></span>
-                        <div class="pub-authors"><span class="fw6">Rishabh Maheshwary</span>, Saket Maheshwary, Vikram Pudi
-                        </div>
-                    <span class="pub-venue">AAAI 2021, Student Poster</span>
-                    <div class="pub-code"><span><a href="https://github.com/RishabhMaheshwary/contextattack">Code</a> | <a href="docs/context_attack_poster.pdf">Poster</a></span>
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="https://ojs.aaai.org/index.php/AAAI/article/download/17916/17721">A context aware approach for generating natural language attacks</a></h3>
+                    <p class="pub-authors"><span class="fw6">Rishabh Maheshwary</span>, Saket Maheshwary, Vikram Pudi</p>
+                    <span class="pub-venue">AAAI 2021 • Student Poster</span>
+                    <div class="pub-links">
+                        <a href="https://github.com/RishabhMaheshwary/contextattack" class="pub-link">Code</a>
+                        <a href="docs/context_attack_poster.pdf" class="pub-link">Poster</a>
+                    </div>
                 </div>
             </div>
+
+            <!-- Publication 8 -->
+            <div class="publication-card">
+                <div class="pub-image-container">
+                    <img src="img/thesis.png" alt="Thesis">
+                </div>
+                <div class="pub-content">
+                    <h3 class="pub-title"><a href="docs/Evaluating_the_Robustness_of_Deep_learning_Models_for_NLP.pdf">Evaluating the Robustness of Deep learning Models for NLP</a></h3>
+                    <p class="pub-authors"><span class="fw6">Masters Thesis</span> • IIIT Hyderabad</p>
+                    <span class="pub-venue">2022</span>
+                    <div class="pub-links">
+                        <a href="https://docs.google.com/presentation/d/19tTGz1IyTBss1h8WvMPy9H5WMjxAjy9W/edit?usp=sharing&ouid=104639979968551783603&rtpof=true&sd=true" class="pub-link">Slides</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-</div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Rishabh Maheshwary • Built with care</p>
+    </footer>
 </body>
 </html>
