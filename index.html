@@ -3,438 +3,378 @@
 <head>
     <meta charset="utf-8">
     <title>Rishabh Maheshwary</title>
-    <meta name="description" content="Research Scientist at ServiceNow">
+    <meta name="description" content="Research at Cartesia">
     <meta name="author" content="Rishabh Maheshwary">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     
     <style>
-        * {
+        :root {
+            --accent: #2a9d7f;
+            --accent-hover: #1f7d65;
+            --heading: #2b3036;
+            --text: #5f666d;
+            --sidebar-bg: linear-gradient(180deg, #24303a 0%, #1c252c 45%, #12181c 75%, #090c0e 100%);
+            --sidebar-w: 35%;
+            --rule: #e6e9ec;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html {
-            font-size: 62.5%;
             scroll-behavior: smooth;
         }
 
         body {
-            font-size: 1.6rem;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: #1a1a1a;
-            background: #fafafa;
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-size: 11.5pt;
+            font-weight: 400;
+            line-height: 1.65em;
+            color: var(--text);
+            background: #fcfcfb;
         }
 
-        /* Header Section */
-        /* 🎨 CUSTOMIZE HEADER COLORS HERE */
-        .header {
-            /* Light gradient options - uncomment one you like: */
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);  /* Light gray */
-            /* background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%); */ /* White to light gray */
-            /* background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); */ /* Light blue */
-            /* background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); */ /* Light pink */
-            /* background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); */ /* Light purple */
-            
-            color: #1a1a1a;  /* Changed to dark text for light background */
-            padding: 80px 20px 60px;
-            position: relative;
-            overflow: hidden;
+        a {
+            border-bottom: dotted 1px;
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease, border-color 0.2s ease;
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
+        a:hover {
+            border-bottom-color: transparent;
+            color: var(--accent-hover);
+        }
+
+        h1, h2, h3 {
+            color: var(--heading);
+            font-weight: 700;
+            line-height: 1.5em;
+        }
+
+        #sidebar {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(0,0,0,0.02)"/></svg>') repeat;
-            opacity: 0.5;
-        }
-
-        .header-content {
-            max-width: 900px;
-            margin: 0 auto;
+            width: var(--sidebar-w);
+            height: 100%;
+            padding: 8em 4em;
+            background: var(--sidebar-bg);
+            color: rgba(255, 255, 255, 0.82);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 50px;
-            position: relative;
-            z-index: 1;
+            text-align: center;
         }
 
-        .profile-section {
-            flex-shrink: 0;
+        #sidebar .inner {
+            width: 100%;
+            max-width: 18em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .headshot {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
+        #sidebar .image.avatar {
+            display: block;
+            border: 0;
+            margin: 0 0 1.4em 0;
+            width: 13em;
+            max-width: 100%;
+        }
+
+        #sidebar .image.avatar img {
+            width: 100%;
+            aspect-ratio: 1;
             object-fit: cover;
-            border: 4px solid rgba(0, 0, 0, 0.1);  /* Changed for light header */
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);  /* Changed for light header */
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.35);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            display: block;
         }
 
-        .bio-section {
-            flex: 1;
+        #sidebar .identity {
+            font-size: 1.1em;
+            line-height: 1.6em;
         }
 
-        h1 {
-            font-size: 4.2rem;
+        #sidebar .identity strong {
+            font-size: 1.2em;
+        }
+
+        #sidebar .identity strong {
+            color: #fff;
             font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: -0.02em;
         }
 
-        .tagline {
-            font-size: 1.8rem;
-            opacity: 0.85;
-            margin-bottom: 25px;
-            font-weight: 400;
+        #sidebar .identity p {
+            margin: 0;
         }
 
-        .social-links {
+        #sidebar .icons {
             display: flex;
-            gap: 20px;
             flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75em 1.1em;
+            margin-top: 1.4em;
+            padding-top: 1.2em;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
         }
 
-        .social-links a {
-            color: #1a1a1a;  /* Changed to dark for light header */
-            font-size: 2.0rem;
-            transition: all 0.3s;
-            opacity: 0.7;
+        #sidebar .icons a {
+            border: 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.3em;
         }
 
-        .social-links a:hover {
-            opacity: 1;
-            transform: translateY(-2px);
+        #sidebar .icons a:hover {
+            color: #fff;
         }
 
-        /* Main Content */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 20px;
+        #main {
+            margin-left: var(--sidebar-w);
+            width: calc(100% - var(--sidebar-w));
+            max-width: 54em;
+            padding: 8em 4em 4em;
         }
 
-        /* About Section */
-        .about {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            margin-bottom: 60px;
+        #main > section {
+            border-top: solid 2px var(--rule);
+            margin: 4em 0 0;
+            padding: 4em 0 0;
         }
 
-        .about p {
-            font-size: 1.7rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #2d2d2d;
+        #main > section:first-child {
+            border-top: 0;
+            margin-top: 0;
+            padding-top: 0;
         }
 
-        .about a {
-            color: #1a1a1a;
-            text-decoration: none;
-            border-bottom: 2px solid #e0e0e0;
-            transition: border-color 0.3s;
-            font-weight: 500;
+        #main > section > h1 {
+            font-size: 1.45em;
+            margin-bottom: 0.85em;
         }
 
-        .about a:hover {
-            border-color: #1a1a1a;
+        #main p {
+            margin-bottom: 1em;
         }
 
-        /* Section Headers */
-        .section-header {
-            font-size: 3.0rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            color: #1a1a1a;
-            letter-spacing: -0.02em;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        .about-links {
+            margin-top: 1.25em;
         }
 
-        .section-header::after {
-            content: '';
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(to right, #1a1a1a 0%, transparent 100%);
+        .about-links a {
+            font-weight: 600;
         }
 
-        /* Publications Grid */
         .publications-grid {
-            display: grid;
-            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 3.5em;
         }
 
         .publication-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-            display: flex;
-            gap: 0;
+            display: grid;
+            grid-template-columns: 26% 1fr;
+            gap: 1.5em 2em;
+            align-items: start;
         }
 
-        .publication-card:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-            transform: translateY(-4px);
-        }
-
-        .pub-image-container {
-            flex: 0 0 200px;
-            background: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
+        .pub-image-container a {
+            border: 0;
+            display: block;
         }
 
         .pub-image-container img {
-            max-width: 100%;
-            max-height: 140px;
+            width: 100%;
+            max-height: 14em;
             object-fit: contain;
-            transition: transform 0.4s ease;
+            object-position: center top;
+            border-radius: 4px;
+            display: block;
+            border: 0;
         }
 
-        .publication-card:hover .pub-image-container img {
-            transform: scale(1.1);
-        }
-
-        .pub-content {
-            flex: 1;
-            padding: 30px;
+        .pub-content p {
+            margin-bottom: 0.35em;
         }
 
         .pub-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            line-height: 1.4;
+            font-size: 1em;
+            font-weight: 700;
+            margin-bottom: 0.35em;
+            line-height: 1.5em;
         }
 
         .pub-title a {
-            color: #1a1a1a;
-            text-decoration: none;
-            transition: color 0.3s;
+            border: 0;
+            color: var(--heading);
+            font-weight: 700;
         }
 
         .pub-title a:hover {
-            color: #4a4a4a;
+            color: var(--accent);
         }
 
         .pub-authors {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            line-height: 1.6;
-            color: #555;
+            font-style: italic;
+            line-height: 1.6em;
         }
 
         .pub-venue {
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: #1a1a1a;
-            margin-bottom: 15px;
-            display: inline-block;
-            padding: 4px 12px;
-            background: #f0f0f0;
-            border-radius: 4px;
+            display: block;
+            margin-bottom: 0.5em;
         }
 
         .pub-links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+            margin-top: 0.35em;
         }
 
         .pub-link {
-            font-size: 1.4rem;
-            color: #1a1a1a;
-            text-decoration: none;
-            padding: 6px 14px;
-            border: 1.5px solid #1a1a1a;
-            border-radius: 6px;
-            transition: all 0.3s;
-            font-weight: 500;
-            font-family: 'IBM Plex Mono', monospace;
+            display: inline-block;
+            height: 2.25em;
+            line-height: 2.25em;
+            padding: 0 1.1em;
+            margin: 0.35em 0.35em 0 0;
+            border: solid 1px var(--rule);
+            border-bottom: solid 1px var(--rule);
+            border-radius: 4px;
+            color: var(--heading);
+            font-size: 0.72em;
+            font-weight: 600;
+            text-transform: none;
         }
 
         .pub-link:hover {
-            background: #1a1a1a;
-            color: white;
-            transform: translateY(-2px);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .pub-link + .pub-link::before {
+            content: none;
         }
 
         .fw6 {
-            font-weight: 600;
-            color: #1a1a1a;
+            font-style: italic;
+            font-weight: 700;
+            color: var(--accent);
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #888;
-            font-size: 1.4rem;
-            font-family: 'IBM Plex Mono', monospace;
+        @media screen and (max-width: 1280px) {
+            :root {
+                --sidebar-w: 30%;
+            }
+
+            #sidebar {
+                padding: 3em 2em;
+            }
+
+            #main {
+                padding: 6em 3em 3em;
+            }
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header {
-                padding: 50px 20px 40px;
+        @media screen and (max-width: 980px) {
+            #sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 4em 2em;
+                background: var(--sidebar-bg);
             }
 
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 30px;
+            #sidebar .image.avatar {
+                width: 10em;
             }
 
-            h1 {
-                font-size: 3.2rem;
-            }
-
-            .tagline {
-                font-size: 1.6rem;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .container {
-                padding: 40px 20px;
-            }
-
-            .about {
-                padding: 30px 25px;
-            }
-
-            .section-header {
-                font-size: 2.4rem;
+            #main {
+                margin-left: 0;
+                width: 100%;
+                max-width: none;
+                padding: 4em 4em 6em;
             }
 
             .publication-card {
-                flex-direction: column;
+                grid-template-columns: 1fr;
             }
 
             .pub-image-container {
-                flex: 1;
-                min-height: 180px;
-            }
-
-            .pub-content {
-                padding: 25px;
-            }
-
-            .pub-title {
-                font-size: 1.7rem;
+                max-width: 14em;
             }
         }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2.8rem;
+        @media screen and (max-width: 736px) {
+            body {
+                font-size: 11pt;
             }
 
-            .headshot {
-                width: 140px;
-                height: 140px;
+            #sidebar {
+                padding: 2.25em 1.5em;
             }
 
-            .section-header {
-                font-size: 2.0rem;
+            #main {
+                padding: 2.25em 1.5em;
             }
 
-            .about p {
-                font-size: 1.6rem;
-            }
-        }
-
-        /* Smooth animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            #main > section {
+                margin-top: 2.25em;
+                padding-top: 2.25em;
             }
         }
-
-        .publication-card {
-            animation: fadeInUp 0.6s ease-out backwards;
-        }
-
-        .publication-card:nth-child(1) { animation-delay: 0.1s; }
-        .publication-card:nth-child(2) { animation-delay: 0.15s; }
-        .publication-card:nth-child(3) { animation-delay: 0.2s; }
-        .publication-card:nth-child(4) { animation-delay: 0.25s; }
-        .publication-card:nth-child(5) { animation-delay: 0.3s; }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="header-content">
-            <div class="profile-section">
-                <img class="headshot" src="img/pic.jpeg" alt="Rishabh Maheshwary">
+    <header id="sidebar">
+        <div class="inner">
+            <a href="#" class="image avatar">
+                <img src="img/pic.jpeg" alt="Rishabh Maheshwary">
+            </a>
+            <div class="identity">
+                <p><strong>Rishabh Maheshwary</strong></p>
+                <p>Research @ Cartesia</p>
+                <p>Ex-ServiceNow, FAIR, IIIT-H</p>
             </div>
-            <div class="bio-section">
-                <h1>Rishabh Maheshwary</h1>
-                <p class="tagline">Research Scientist @ ServiceNow | Ex-FAIR AI Resident</p>
-                <div class="social-links">
-                    <a href="mailto:rf.rishabh@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://twitter.com/rmahesh__" title="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://github.com/RishabhMaheshwary" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/rishabh-maheshwary/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="docs/Resume.pdf" title="CV"><i class="ai ai-cv"></i></a>
-                    <a href="https://scholar.google.com/citations?user=cwGB7lwAAAAJ&hl=en&oi=sra" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-                </div>
+            <div class="icons">
+                <a href="mailto:rf.rishabh@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://twitter.com/rmahesh__" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/RishabhMaheshwary" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/rishabh-maheshwary/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://scholar.google.com/citations?user=cwGB7lwAAAAJ&hl=en&oi=sra" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+                <a href="docs/Resume.pdf" title="CV"><i class="ai ai-cv"></i></a>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- About Section -->
-        <section class="about">
-            <p>I am Rishabh, currently part of the research group at <a href="https://www.servicenow.com/research/author/rishabh-maheshwary.html">ServiceNow</a>, where I focus on LLM post-training through data curation, fine-tuning, reinforcement learning, and model evaluations.</p>
-            
-            <p>My recent work includes <a href="https://arxiv.org/abs/2510.01141">Apriel-15B</a> <a href="https://huggingface.co/collections/ServiceNow-AI/apriel-15-15b-thinker">model series</a>, research on <a href="https://arxiv.org/abs/2406.16783">multilingual</a> <a href="https://arxiv.org/abs/2410.15522">alignment</a> and <a href="https://openreview.net/forum?id=k3gCieTXeY">benchmarking</a>, <a href="https://arxiv.org/abs/2403.07230">curriculum learning for preference modeling</a>, and improving <a href="https://arxiv.org/abs/2505.16293">agentic capabilities</a>.</p>
-            
-            <p>Previously, I was an <a href="https://ai.facebook.com/join-us/residency-program/">AI Resident</a> at <a href="https://ai.facebook.com/research/">Facebook AI Research</a>, where I worked with <a href="https://rohrbach.vision/">Marcus Rohrbach</a> on text detection and <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Dancette_Improving_Selective_Visual_Question_Answering_by_Learning_From_Your_Peers_CVPR_2023_paper.pdf">multimodal vision-and-language understanding.</a></p> 
-            <p>Prior to that, I completed my Master's at <a href="https://blogs.iiit.ac.in/monthly_news/21398/">IIIT Hyderabad</a>, focusing on robustness and generalization of language models.</p>
-            <p>More details can be found on my <a href="https://scholar.google.com/citations?user=cwGB7lwAAAAJ&hl=en&oi=sra">google scholar page</a> and <a href="https://docs.google.com/document/d/1_yCMO4WAIThGANHYUUsTe85pzOMmYafa4Hwo-9wE9_E/edit?usp=sharing">cover letter.</a></p>
+    <div id="main">
+        <section id="about">
+            <h1>About</h1>
+            <p>I am Rishabh, currently part of the research group at <a href="https://cartesia.ai/">Cartesia</a>, working on post-training. <p>Previously, I was a Research Scientist at <a href="https://www.servicenow.com/research/author/rishabh-maheshwary.html">ServiceNow</a>, where I worked on post-training through data curation, fine-tuning, reinforcement learning, and model evaluations. Some of my work includes the <a href="https://arxiv.org/abs/2510.01141">Apriel-15B</a> <a href="https://huggingface.co/collections/ServiceNow-AI/apriel-15-15b-thinker">model series</a>, research on <a href="https://arxiv.org/abs/2406.16783">multilingual</a> <a href="https://arxiv.org/abs/2410.15522">alignment</a> and <a href="https://openreview.net/forum?id=k3gCieTXeY">benchmarking</a>, <a href="https://arxiv.org/abs/2403.07230">curriculum learning for preference modeling</a>, and improving <a href="https://arxiv.org/abs/2505.16293">agentic capabilities</a>.</p>
+            <p>Before that, I was an <a href="https://ai.facebook.com/join-us/residency-program/">AI Resident</a> at <a href="https://ai.facebook.com/research/">Meta AI (FAIR)</a>, working on text detection and <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Dancette_Improving_Selective_Visual_Question_Answering_by_Learning_From_Your_Peers_CVPR_2023_paper.pdf">multimodal vision-and-language understanding</a>.</p>
+            <p>Prior to that, I completed my Master's at <a href="https://blogs.iiit.ac.in/monthly_news/21398/">IIIT Hyderabad</a>, focusing on adversarial robustness of language models.</p>
+            <p class="about-links"><a href="https://scholar.google.com/citations?user=cwGB7lwAAAAJ&hl=en&oi=sra">Google Scholar</a> / <a href="docs/Resume.pdf">CV</a> / <a href="https://docs.google.com/document/d/1_yCMO4WAIThGANHYUUsTe85pzOMmYafa4Hwo-9wE9_E/edit?usp=sharing">Cover letter</a></p>
         </section>
 
-        <!-- Publications Section -->
-        <h2 class="section-header">Research</h2>
-        
-        <div class="publications-grid">
+        <section id="research">
+            <h1>Research</h1>
+            <div class="publications-grid">
             <!-- Publication: World Models -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/wm.png" alt="World Models">
+                    <a href="https://arxiv.org/abs/2605.12178"><img src="img/wm.png" alt="World Models"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://arxiv.org/abs/2605.12178">Do Enterprise Systems Need Learned World Models? The Importance of Context to Infer Dynamics</a></h3>
                     <p class="pub-authors"><span class="fw6">Core Contributor | Joint first author</span></p>
-                    <span class="pub-venue">Under submission at NeurIPS 2026</span>
+                    <span class="pub-venue">NeurIPS 2026</span>
                     <div class="pub-links">
                         <a href="https://arxiv.org/abs/2605.12178" class="pub-link">Paper</a>
                     </div>
@@ -444,7 +384,7 @@
             <!-- Publication 1 -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/now1.png" alt="Apriel-15B">
+                    <a href="https://arxiv.org/abs/2510.01141"><img src="img/now1.png" alt="Apriel-15B"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://arxiv.org/abs/2510.01141">Apriel-15B series</a></h3>
@@ -461,7 +401,7 @@
             <!-- Publication 2 -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/qa.png" alt="Dynamic Notes">
+                    <a href="https://arxiv.org/abs/2505.16293"><img src="img/qa.png" alt="Dynamic Notes"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://arxiv.org/abs/2505.16293">Augmenting LLM Reasoning with Dynamic Notes Writing for Complex QA</a></h3>
@@ -473,7 +413,7 @@
             <!-- Publication 3 -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/mrewardbench.png" alt="M-RewardBench">
+                    <a href="https://arxiv.org/abs/2410.15522"><img src="img/mrewardbench.png" alt="M-RewardBench"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://arxiv.org/abs/2410.15522">M-RewardBench: Evaluating Reward Models for Multilingual</a></h3>
@@ -489,7 +429,7 @@
 
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/quant.png" alt="Dynamic Notes">
+                    <a href="https://aclanthology.org/2025.findings-acl.29"><img src="img/quant.png" alt="Dynamic Notes"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://aclanthology.org/2025.findings-acl.29">Variable Layerwise Quantization: A Simple and Effective Approach to Quantize LLMs</a></h3>
@@ -501,7 +441,7 @@
             <!-- Publication 4 -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/include.png" alt="Include">
+                    <a href="https://openreview.net/forum?id=k3gCieTXeY"><img src="img/include.png" alt="Include"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://openreview.net/forum?id=k3gCieTXeY">Include: Evaluating Multilingual Language understanding with Regional Knowledge</a></h3>
@@ -517,7 +457,7 @@
             <!-- Publication 5 -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/curri_dpo.png" alt="Curriculum DPO">
+                    <a href="https://arxiv.org/abs/2403.07230"><img src="img/curri_dpo.png" alt="Curriculum DPO"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://arxiv.org/abs/2403.07230">Enhancing Alignment using Curriculum Learning & Ranked Preferences</a></h3>
@@ -532,7 +472,7 @@
             <!-- Publication 6 -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/m2lingual.png" alt="M2Lingual">
+                    <a href="https://arxiv.org/abs/2406.16783"><img src="img/m2lingual.png" alt="M2Lingual"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://arxiv.org/abs/2406.16783">M2Lingual: Enhancing Multilingual, Multi-Turn Instruction Alignment in Large Language Models</a></h3>
@@ -548,7 +488,7 @@
             <!-- Publication 7 -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/vqa.png" alt="VQA">
+                    <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Dancette_Improving_Selective_Visual_Question_Answering_by_Learning_From_Your_Peers_CVPR_2023_paper.pdf"><img src="img/vqa.png" alt="VQA"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Dancette_Improving_Selective_Visual_Question_Answering_by_Learning_From_Your_Peers_CVPR_2023_paper.pdf">Improving Selective Visual Question Answering by Learning from Your Peers</a></h3>
@@ -560,7 +500,7 @@
 
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/td.png" alt="VQA">
+                    <a href="https://docs.google.com/presentation/d/16OjKl8uSKnHerBe3C-LVFxcUvQ_-HLhA/edit?usp=sharing&ouid=104639979968551783603&rtpof=true&sd=true"><img src="img/td.png" alt="VQA"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://docs.google.com/presentation/d/16OjKl8uSKnHerBe3C-LVFxcUvQ_-HLhA/edit?usp=sharing&ouid=104639979968551783603&rtpof=true&sd=true">End-to-end text detection</a></h3>
@@ -570,12 +510,12 @@
                         <a href="https://docs.google.com/presentation/d/16OjKl8uSKnHerBe3C-LVFxcUvQ_-HLhA/edit?usp=sharing&ouid=104639979968551783603&rtpof=true&sd=true" class="pub-link">Slides</a>
                     </div>
                 </div>
-                </div>
+            </div>
 
             <!-- Publication 9 -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/da.png" alt="Data Augmentation">
+                    <a href="https://aclanthology.org/2022.naacl-main.310/"><img src="img/da.png" alt="Data Augmentation"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://aclanthology.org/2022.naacl-main.310/">Practice Makes a Solver Perfect: Data Augmentation for Math Word Problem Solvers</a></h3>
@@ -591,7 +531,7 @@
             <!-- Publication 10 -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/bb.png" alt="Black Box">
+                    <a href="https://aclanthology.org/2021.emnlp-main.661"><img src="img/bb.png" alt="Black Box"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://aclanthology.org/2021.emnlp-main.661">A Strong Baseline for Query Efficient Attacks in a Black Box Setting</a></h3>
@@ -607,7 +547,7 @@
             <!-- Publication 11 -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/mwp.png" alt="MWP">
+                    <a href="https://aclanthology.org/2021.findings-emnlp.230/"><img src="img/mwp.png" alt="MWP"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://aclanthology.org/2021.findings-emnlp.230/">Adversarial Examples for Evaluating Math Word Problem Solvers</a></h3>
@@ -622,7 +562,7 @@
             <!-- Publication 12 -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/hl.png" alt="Hard Label">
+                    <a href="https://ojs.aaai.org/index.php/AAAI/article/view/17595/17402"><img src="img/hl.png" alt="Hard Label"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/17595/17402">Generating natural language attacks in a hard label black box setting</a></h3>
@@ -639,7 +579,7 @@
             <!-- Publication 13 -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/ca.png" alt="Context Attack">
+                    <a href="https://ojs.aaai.org/index.php/AAAI/article/download/17916/17721"><img src="img/ca.png" alt="Context Attack"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="https://ojs.aaai.org/index.php/AAAI/article/download/17916/17721">A context aware approach for generating natural language attacks</a></h3>
@@ -655,7 +595,7 @@
             <!-- Publication 8 -->
             <div class="publication-card">
                 <div class="pub-image-container">
-                    <img src="img/thesis.png" alt="Thesis">
+                    <a href="docs/Evaluating_the_Robustness_of_Deep_learning_Models_for_NLP.pdf"><img src="img/thesis.png" alt="Thesis"></a>
                 </div>
                 <div class="pub-content">
                     <h3 class="pub-title"><a href="docs/Evaluating_the_Robustness_of_Deep_learning_Models_for_NLP.pdf">Evaluating the Robustness of Deep learning Models for NLP</a></h3>
@@ -667,12 +607,8 @@
                 </div>
             </div>
 
-        </div>
+            </div>
+        </section>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Rishabh Maheshwary • Built with care</p>
-    </footer>
 </body>
 </html>
